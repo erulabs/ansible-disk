@@ -6,7 +6,7 @@
     state: 'present'
   with_flattened:
     - 'parted'
-  when: disk_additional_disks and ansible_distribution in [ 'Debian', 'Ubuntu' ]
+  when: (disk_additional_disks is defined) and (ansible_distribution in [ 'Debian', 'Ubuntu' ])
   tags:
     - disk
     - pkgs
